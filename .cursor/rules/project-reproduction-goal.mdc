@@ -1,0 +1,17 @@
+---
+description: Project goal for reproducing Convolutional Differentiable Logic Gate Networks
+alwaysApply: true
+---
+
+# Project Reproduction Goal
+
+This project is a reproduction of the paper "Convolutional Differentiable Logic Gate Networks" by Petersen et al.
+
+When working on this repository:
+
+- Treat the paper as the primary technical reference for architecture, training setup, experiments, and evaluation.
+- Use `PLAN.md` as the current implementation roadmap for the reproduction work.
+- Prefer implementing behavior described in the paper over introducing unrelated alternatives.
+- When changing code, configs, tests, or documentation, keep the goal of reproducing the paper's reported metrics in mind.
+- If implementation details are ambiguous, first inspect the paper, `PLAN.md`, and existing project patterns before deciding.
+- Keep changes scoped to improving the fidelity, reliability, or usability of the reproduction unless the user asks otherwise.

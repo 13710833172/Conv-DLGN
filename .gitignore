@@ -1,0 +1,25 @@
+# Datasets (downloaded at runtime; keep src/data/ loaders)
+/data/
+*.tar.gz
+
+# Training artifacts and checkpoints
+logs/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.env
+
+# OS / editor
+.DS_Store
+Thumbs.db

@@ -1,0 +1,31 @@
+model:
+  family: "logictreenet"
+  dataset: "cifar10"
+  size: "L"
+  profile_source: "paper_table6"
+  num_classes: 10
+
+data:
+  dataset: "cifar10"
+  cifar10_input_mode: "large_threshold31"
+  # cifar10_input_mode: "large_bitplane5"
+  data_dir: "data"
+
+training:
+  max_epochs: 200
+  device: "cuda"
+
+teacher:
+  enabled: true
+  checkpoint: "src/models/resnet18_cifar10_ult.pt"
+  arch: "resnet18"
+  distill_weight: 0.5
+  temperature: 1.4142135623730951
+
+logging:
+  evaluate_test_during_training: false
+  log_soft_hard_consistency: false
+
+checkpoint:
+  save_dir: "checkpoints/logictree/cifar10_l"
+  seed: 0

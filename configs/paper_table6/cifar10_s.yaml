@@ -1,0 +1,24 @@
+model:
+  family: "logictreenet"
+  dataset: "cifar10"
+  size: "S"
+  profile_source: "paper_table6"
+  num_classes: 10
+
+data:
+  dataset: "cifar10"
+  # profile defaults to small (3 thresholds, 9 channels) for size S/M
+  cifar10_input_mode: "small"
+  data_dir: "data"
+
+training:
+  max_epochs: 80
+  device: "cuda"
+
+logging:
+  evaluate_test_during_training: false
+  log_soft_hard_consistency: false
+
+checkpoint:
+  save_dir: "checkpoints/logictree/cifar10_s"
+  seed: 0

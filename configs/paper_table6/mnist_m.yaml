@@ -1,0 +1,23 @@
+model:
+  family: "logictreenet"
+  dataset: "mnist"
+  size: "M"
+  profile_source: "paper_table6"
+  num_classes: 10
+
+data:
+  dataset: "mnist"
+  binarize_threshold: 0.5
+  data_dir: "data"
+
+training:
+  max_epochs: 200
+  device: "cuda"
+
+logging:
+  evaluate_test_during_training: false
+  log_soft_hard_consistency: false
+
+checkpoint:
+  save_dir: "checkpoints/logictree/mnist_m"
+  seed: 0
