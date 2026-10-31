@@ -22,7 +22,7 @@ Conv-DLGN reuses a learned depth-three logic tree at every spatial location, the
 
 ![Conv-DLGN pipeline: soft training and hard inference with the same convolutional logic-tree architecture, plus local tree, OR pooling, and residual initialization details.](docs/figures/overview.svg)
 
-*Figure 1. Conv-DLGN training, export, and local computation. (a) Soft training of CIFAR-10-S; feature sizes are shown after each pooling step. (b) Argmax export preserves sampled leaves, spatial parameter sharing, and sparse head wiring for Boolean inference. (c) Each depth-three kernel combines eight leaves through seven gates; OR pooling uses max during training, and residual initialization favors identity A. RGB input and pooling values are illustrative.*
+*Figure 1. Conv-DLGN training, export, and local computation. (a) Soft training through shared logic-tree convolutions, OR pooling, a sparse logic head, and grouped readout. (b) Argmax export selects one Boolean operator per gate while preserving sampled leaves, spatial sharing, and head wiring. (c) Each depth-three kernel combines eight leaves through seven gates; OR pooling uses max during training, and residual initialization favors identity A. Panels (a–b) follow CIFAR-10-S; feature patterns, displayed graph widths, class groups, and RGB input are schematic. Pooling values in (c) are illustrative.*
 
 [View the full-size SVG](docs/figures/overview.svg)
 
