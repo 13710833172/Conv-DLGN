@@ -18,9 +18,13 @@ Extending learned Boolean gates to image understanding requires spatial feature 
 
 ## Methodology
 
-![Convolutional logic-tree architecture and local gate computation](docs/figures/overview.svg)
+Conv-DLGN reuses a learned depth-three logic tree at every spatial location, then downsamples its feature maps with fixed OR pooling.
 
-*Figure 1. Encoded image features pass through shared local logic-tree convolutions and OR pooling, followed by a sparse logic head and class-group aggregation. Each depth-three tree contains eight leaves and seven learned gates.*
+![Conv-DLGN pipeline: soft training and hard inference with the same convolutional logic-tree architecture, plus local tree, OR pooling, and residual initialization details.](docs/figures/overview.svg)
+
+*Figure 1. Conv-DLGN training, export, and local computation. (a) Soft training of CIFAR-10-S; feature sizes are shown after each pooling step. (b) Argmax export preserves sampled leaves, spatial parameter sharing, and sparse head wiring for Boolean inference. (c) Each depth-three kernel combines eight leaves through seven gates; OR pooling uses max during training, and residual initialization favors identity A. RGB input and pooling values are illustrative.*
+
+[View the full-size SVG](docs/figures/overview.svg)
 
 **Convolutional logic tree.** For every output channel, the [convolutional layer](src/models/conv_logic_tree_layer.py) chooses eight fixed local inputs (from up to two channels) and combines them through three levels of binary logic gates. The same operator parameters are shared across spatial locations. The [network](src/models/logic_tree_net.py) stacks these blocks and uses [OR pooling](src/models/or_pool.py) before its three-layer sparse classification head.
 
